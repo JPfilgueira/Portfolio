@@ -246,7 +246,7 @@ body.theme-light .theme-btn {
     justify-content: center;
     align-items: center;
     opacity: 0;
-    transform: translateX(120px);
+    transform: translateX(300px);
     transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
     pointer-events: none;
 }
