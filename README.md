@@ -1,5 +1,4 @@
-🌐 Portfólio <br>
-🔗 Link - https://jpfilgueira.github.io/Portfolio/ <br> <br>
+🌐 Portfólio - https://jpfilgueira.github.io/Portfolio/ <br> <br>
 
 ⚙️ Sobre o projeto <br>
 Este é o meu portfólio pessoal, um site desenvolvido para apresentar quem eu sou, minhas tecnologias e minha trajetória. O site foi construído com HTML, CSS e JavaScript puros, sem frameworks. Ele conta com alternância entre tema claro e escuro, e seções com animações e transições suaves. <br> <br>
