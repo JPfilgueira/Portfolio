@@ -1,0 +1,91 @@
+/* Reset & Box Model */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+:root {
+    /* Base Font Family */
+    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-heading: 'Outfit', sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+
+    /* Dark Theme Colors (Default) */
+    --bg-main: #0B0713;
+    --bg-card: rgba(255, 255, 255, 0.03);
+    --bg-card-hover: rgba(255, 255, 255, 0.07);
+    --border-color: rgba(255, 255, 255, 0.1);
+    --border-color-glow: rgba(168, 85, 247, 0.4);
+    
+    --text-main: #FFFFFF;
+    --text-muted: #9CA3AF;
+    --text-subtitle: #D1D5DB;
+
+    --primary-accent: #A855F7;
+    --primary-glow: rgba(168, 85, 247, 0.3);
+    --secondary-accent: #3B82F6;
+    --yellow-accent: #FFCC00;
+
+    /* Header & Footer specific */
+    --header-bg: rgba(11, 7, 19, 0.75);
+    --footer-bg: #07040C;
+    --footer-bottom: #040207;
+}
+
+body.theme-light {
+    --bg-main: #F8FAFC;
+    --bg-card: #FFFFFF;
+    --bg-card-hover: #F1F5F9;
+    --border-color: rgba(0, 0, 0, 0.08);
+    --border-color-glow: rgba(168, 85, 247, 0.4);
+
+    --text-main: #0F172A;
+    --text-muted: #64748B;
+    --text-subtitle: #334155;
+
+    --header-bg: rgba(248, 250, 252, 0.8);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    overflow-x: hidden;
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Common Layout Container */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+button {
+    cursor: pointer;
+    font-family: inherit;
+    border: none;
+    background: none;
+}
