@@ -39,7 +39,7 @@ body::-webkit-scrollbar {
     --footer-bottom: #040207;
 }
 
-body.theme-light {
+body.tema-claro {
     --bg-main: #F8FAFC;
     --bg-card: #FFFFFF;
     --bg-card-hover: #F1F5F9;
