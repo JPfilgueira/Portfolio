@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Cabeçalho
+   Cabeçalho & Navegação
    ========================================================================== */
 .cabecalho {
     position: fixed;
@@ -30,25 +30,18 @@
     align-items: center;
 }
 
-.logo {
-    height: 50px;
-    width: auto;
-    filter: drop-shadow(0 0 8px var(--primary-accent));
-    transition: transform 0.3s ease;
-}
-
-.logo-link:hover .logo {
-    transform: scale(1.05);
-}
-
-.logo-alternativo {
-    display: none;
+.texto-logo-cabecalho {
     font-family: var(--font-heading);
+    font-size: 28px;
     font-weight: 800;
-    font-size: 24px;
     background: linear-gradient(135deg, var(--primary-accent), var(--secondary-accent));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    transition: transform 0.3s ease;
+}
+
+.logo-link:hover .texto-logo-cabecalho {
+    transform: scale(1.05);
 }
 
 .nav-links {
@@ -69,88 +62,113 @@
     text-shadow: 0 0 10px var(--border-color-glow);
 }
 
-/* Botão Alternar Tema */
-.btn-tema {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
+.cabecalho-acoes {
     display: flex;
     align-items: center;
-    justify-content: center;
-    border: 1px solid var(--border-color);
-    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.3s ease;
+    gap: 16px;
 }
 
-.btn-tema:hover {
+/* --------------------------------------------------------------------------
+   Botão Baixar CV (Destaque Neon Roxo)
+   -------------------------------------------------------------------------- */
+.btn-baixar-cv {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 20px;
+    border-radius: 30px;
+    background: transparent;
+    border: 2px solid var(--primary-accent);
+    color: var(--primary-accent);
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 0 14px var(--primary-glow), inset 0 0 8px rgba(168, 85, 247, 0.15);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-baixar-cv:hover {
+    background-color: var(--primary-accent);
+    color: #000000;
+    font-weight: 800;
+    box-shadow: 0 0 24px rgba(168, 85, 247, 0.8), 0 0 45px rgba(168, 85, 247, 0.4);
+    transform: translateY(-2px);
+}
+
+.btn-baixar-cv:active {
+    transform: translateY(0);
+}
+
+/* --------------------------------------------------------------------------
+   Botão Alternar Tema (Cinematic Theme Switcher)
+   -------------------------------------------------------------------------- */
+.btn-tema-switch {
+    position: relative;
+    width: 68px;
+    height: 36px;
+    border-radius: 20px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 6px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.btn-tema-switch:hover {
     border-color: var(--primary-accent);
 }
 
-.tema-ying-yang {
+.icone-tema {
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    color: var(--text-muted);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.cursor-indicador-tema {
+    position: absolute;
+    top: 4px;
+    left: 4px;
     width: 26px;
     height: 26px;
     border-radius: 50%;
-    background: linear-gradient(90deg, #FFFFFF 50%, #000000 50%);
-    position: relative;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, var(--primary-accent), var(--secondary-accent));
+    box-shadow: 0 0 10px var(--primary-glow);
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    z-index: 1;
 }
 
-.tema-ying-yang::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 25%;
-    width: 13px;
-    height: 13px;
-    background-color: #FFFFFF;
-    border-radius: 50%;
+/* Tema Escuro: Indicador na Lua (Direita) */
+body:not(.tema-claro) .btn-tema-switch .icone-tema.lua {
+    color: #FFFFFF;
+}
+body:not(.tema-claro) .cursor-indicador-tema {
+    transform: translateX(32px);
 }
 
-.tema-ying-yang::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 25%;
-    width: 13px;
-    height: 13px;
-    background-color: #000000;
-    border-radius: 50%;
+/* Tema Claro: Indicador no Sol (Esquerda) */
+body.tema-claro .btn-tema-switch .icone-tema.sol {
+    color: #FFFFFF;
 }
-
-.ponto-preto {
-    position: absolute;
-    top: 4px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 4px;
-    height: 4px;
-    background-color: #000000;
-    border-radius: 50%;
-    z-index: 2;
-}
-
-.ponto-branco {
-    position: absolute;
-    bottom: 4px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 4px;
-    height: 4px;
-    background-color: #FFFFFF;
-    border-radius: 50%;
-    z-index: 2;
-}
-
-body.tema-claro .btn-tema {
-    transform: rotate(180deg);
+body.tema-claro .cursor-indicador-tema {
+    transform: translateX(0);
 }
 
 /* ==========================================================================
-   Introdução
+   1. Introdução
    ========================================================================== */
 .introducao {
     position: relative;
-    min-height: 100vh;
-    padding-top: 120px;
+    min-height: 90vh;
+    padding-top: 130px;
     padding-bottom: 60px;
     display: flex;
     align-items: center;
@@ -161,18 +179,18 @@ body.tema-claro .btn-tema {
     position: absolute;
     top: 15%;
     left: 10%;
-    width: 400px;
-    height: 400px;
+    width: 450px;
+    height: 450px;
     background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
-    filter: blur(80px);
+    filter: blur(90px);
     z-index: -1;
     pointer-events: none;
 }
 
 .intro-grade {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 50px;
     align-items: center;
     width: 100%;
 }
@@ -183,7 +201,6 @@ body.tema-claro .btn-tema {
     align-items: flex-start;
     gap: 24px;
     z-index: 2;
-    margin-bottom: 20px;
 }
 
 .intro-etiqueta {
@@ -199,7 +216,7 @@ body.tema-claro .btn-tema {
 
 .intro-titulo {
     font-family: var(--font-heading);
-    font-size: 64px;
+    font-size: 58px;
     font-weight: 800;
     line-height: 1.1;
     letter-spacing: -1px;
@@ -212,68 +229,324 @@ body.tema-claro .btn-tema {
 }
 
 .intro-descricao {
-    font-size: 18px;
+    font-size: 17px;
     color: var(--text-muted);
-    max-width: 500px;
+    max-width: 520px;
+    line-height: 1.6;
+}
+
+/* --------------------------------------------------------------------------
+   Botão "Conheça mais" com Efeito Neon Real Giratório
+   -------------------------------------------------------------------------- */
+.envoltorio-btn-sobre {
+    position: relative;
+    display: inline-flex;
+    border-radius: 50px;
+    padding: 3px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(255, 204, 0, 0.35);
+}
+
+/* Camada interna de laser com gradiente cônico */
+.envoltorio-btn-sobre::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+        transparent 0deg,
+        transparent 240deg,
+        rgba(255, 204, 0, 0.4) 280deg,
+        #FFEA00 320deg,
+        #FFFFFF 345deg,
+        #FFCC00 360deg
+    );
+    animation: girar-borda-neon 2.5s linear infinite;
+    filter: drop-shadow(0 0 10px #FFCC00) drop-shadow(0 0 20px #FFEA00);
+    z-index: 0;
+}
+
+/* Camada externa para criar o brilho difuso suave de neon */
+.envoltorio-btn-sobre::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+        transparent 0deg,
+        transparent 240deg,
+        rgba(255, 204, 0, 0.8) 320deg,
+        #FFCC00 360deg
+    );
+    animation: girar-borda-neon 2.5s linear infinite;
+    filter: blur(10px);
+    z-index: 0;
+}
+
+@keyframes girar-borda-neon {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 .btn-sobre-mim {
+    position: relative;
+    z-index: 1;
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    padding: 14px 28px;
+    padding: 14px 30px;
     border-radius: 50px;
     background-color: var(--yellow-accent);
     color: #000000;
     font-weight: 700;
     font-size: 16px;
-    box-shadow: 0 0 20px rgba(255, 204, 0, 0.4);
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
 
 .btn-sobre-mim:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 0 30px rgba(255, 204, 0, 0.6);
+    transform: scale(1.03);
 }
 
 .btn-sobre-mim:active {
-    transform: translateY(0);
+    transform: scale(0.98);
 }
 
-/* Ilustração Direita */
+/* --------------------------------------------------------------------------
+   Card Real de Sobre Mim (Aparece ao clicar em "Conheça mais")
+   -------------------------------------------------------------------------- */
 .intro-direita {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
     opacity: 0;
-    transform: translateX(300px);
-    transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateX(80px);
     pointer-events: none;
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.intro-direita.svg-ativo {
+.intro-direita.ativo {
     opacity: 1;
     transform: translateX(0);
     pointer-events: auto;
 }
 
-.envoltorio-svg {
+.cartao-perfil-sobre {
     width: 100%;
-    max-width: 550px;
-    display: flex;
-    justify-content: center;
-    filter: drop-shadow(0 10px 25px rgba(0,0,0,0.5));
+    max-width: 480px;
+    background: var(--bg-card);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    padding: 30px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+    transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+    position: relative;
 }
 
-.intro-svg {
+.cartao-perfil-sobre:hover {
+    border-color: var(--border-color-glow);
+    transform: translateY(-4px);
+    box-shadow: 0 25px 50px var(--primary-glow);
+}
+
+.perfil-topo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.envoltorio-foto-perfil {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    padding: 3px;
+    background: linear-gradient(135deg, var(--primary-accent), var(--secondary-accent));
+    box-shadow: 0 0 16px var(--primary-glow);
+    flex-shrink: 0;
+}
+
+.foto-perfil {
     width: 100%;
-    height: auto;
-    object-fit: contain;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #000000;
+    display: block;
+}
+
+.badge-status-online {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    width: 15px;
+    height: 15px;
+    background-color: #10B981;
+    border: 3px solid var(--bg-main);
+    border-radius: 50%;
+    box-shadow: 0 0 8px #10B981;
+}
+
+.info-perfil-topo {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.etiqueta-cargo {
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--primary-accent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.nome-perfil {
+    font-family: var(--font-heading);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.local-perfil {
+    font-size: 13.5px;
+    color: var(--text-muted);
+}
+
+.perfil-divisor {
+    height: 1px;
+    background: var(--border-color);
+    margin: 18px 0;
+}
+
+.perfil-detalhes {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.item-detalhe {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.detalhe-rotulo {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+}
+
+.detalhe-valor {
+    font-size: 14.5px;
+    color: var(--text-subtitle);
+}
+
+.perfil-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tag-perfil {
+    padding: 4px 10px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--primary-accent);
+}
+
+/* --------------------------------------------------------------------------
+   Terminal de Código Dinâmico (Dentro do Card)
+   -------------------------------------------------------------------------- */
+.terminal-codigo {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    margin: 4px 0;
+}
+
+.terminal-topo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.ponto-terminal {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+}
+.ponto-vermelho { background: #FF5F56; }
+.ponto-amarelo { background: #FFBD2E; }
+.ponto-verde { background: #27C93F; }
+
+.terminal-titulo {
+    margin-left: 6px;
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    color: var(--text-muted);
+}
+
+.terminal-corpo {
+    padding: 12px 14px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    line-height: 1.55;
+    color: #38BDF8;
+}
+
+.terminal-corpo pre {
+    white-space: pre-wrap;
+    word-break: break-word;
+    margin: 0;
+}
+
+.cursor-digitacao {
+    display: inline-block;
+    color: var(--primary-accent);
+    font-weight: 700;
+    animation: piscar-cursor 0.8s infinite;
+}
+
+@keyframes piscar-cursor {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.status-disponivel {
+    font-size: 13.5px;
+    color: #34D399;
+    font-weight: 500;
 }
 
 /* ==========================================================================
-   Seções Comuns (Cabeçalhos de Seção)
+   2. Tecnologias
    ========================================================================== */
+.tecnologias {
+    padding: 100px 0;
+    position: relative;
+}
+
 .secao-cabecalho {
     text-align: center;
     margin-bottom: 60px;
@@ -292,155 +565,25 @@ body.tema-claro .btn-tema {
     color: var(--text-muted);
 }
 
-/* ==========================================================================
-   Projetos em Destaque
-   ========================================================================== */
-.projetos {
-    padding: 100px 0;
-    position: relative;
-    margin: 100px 0;
-}
-
-/* 1. Largura máxima da seção de projetos */
-.projetos .container {
-    max-width: 1400px;
-}
-
-.lista-projetos {
-    display: flex;
-    flex-direction: column;
-    gap: 120px;
-}
-
-/* 2. Distribuição dos cards (Esquerda/Direita) */
-.item-projeto {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 60px; /* Espaço mínimo entre o texto e a imagem */
-    position: relative;
-    width: 100%;
-}
-
-.conteudo-projeto {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    max-width: 550px; /* Largura máxima do bloco de texto */
-    z-index: 2;
-    flex: 1;
-}
-
-.etiqueta-projeto {
-    font-size: 13px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: var(--primary-accent);
-}
-
-.titulo-projeto {
-    font-family: var(--font-heading);
-    font-size: 32px;
-    font-weight: 800;
-    color: var(--text-main);
-    letter-spacing: -0.5px;
-}
-
-.caixa-descricao-projeto {
-    background: var(--bg-card);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid var(--border-color);
-    border-radius: 16px;
-    padding: 24px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-    transition: all 0.3s ease;
-}
-
-.caixa-descricao-projeto:hover {
-    border-color: var(--border-color-glow);
-    box-shadow: 0 15px 35px var(--primary-glow);
-}
-
-.caixa-descricao-projeto p {
-    font-size: 14.5px;
-    line-height: 1.7;
-    color: var(--text-subtitle);
-}
-
-.acoes-projeto {
-    margin-top: 8px;
-}
-
-.btn-projeto {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 20px;
-    border-radius: 30px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--border-color);
-    color: var(--text-main);
-    font-size: 14px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-
-.btn-projeto:hover {
-    background: var(--primary-accent);
-    color: #FFFFFF;
-    border-color: var(--primary-accent);
-    box-shadow: 0 0 20px var(--primary-glow);
-    transform: translateY(-2px);
-}
-
-/* 3. Tamanho das Imagens dos Projetos */
-.envoltorio-imagem-projeto {
-    position: relative;
-    width: 100%;
-    max-width: 480px; /* Tamanho da imagem do projeto */
-    border-radius: 16px;
-    overflow: hidden;
-    border: 1px solid var(--border-color);
-    background: #000000;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    flex-shrink: 0;
-}
-
-.envoltorio-imagem-projeto:hover {
-    border-color: var(--border-color-glow);
-    transform: translateY(-4px);
-    box-shadow: 0 25px 50px rgba(168, 85, 247, 0.25);
-}
-
-.imagem-projeto {
-    width: 100%;
-    height: auto;
-    display: block;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.envoltorio-imagem-projeto:hover .imagem-projeto {
-    transform: scale(1.03);
-}
-
-/* ==========================================================================
-   Tecnologias
-   ========================================================================== */
-.tecnologias {
-    padding: 100px 0;
-    position: relative;
-}
-
 .centro-engrenagem-tec {
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
+    margin-bottom: 25px;
+}
+
+.aura-engrenagem {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 160px;
+    height: 160px;
+    background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
+    filter: blur(25px);
+    z-index: 0;
+    pointer-events: none;
 }
 
 .icone-engrenagem {
@@ -450,16 +593,11 @@ body.tema-claro .btn-tema {
     z-index: 2;
     filter: drop-shadow(0 0 15px var(--primary-accent));
     animation: rotate-gear-clockwise 18s linear infinite;
-    margin-bottom: 7px;
 }
 
 @keyframes rotate-gear-clockwise {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
 .ramificacoes-engrenagem {
@@ -553,7 +691,7 @@ body.tema-claro .btn-tema {
 }
 
 /* ==========================================================================
-   Histórico
+   3. Histórico
    ========================================================================== */
 .historico {
     padding: 100px 0 180px;
@@ -663,6 +801,193 @@ body.tema-claro .btn-tema {
     font-size: 14.5px;
     color: var(--text-muted);
     line-height: 1.6;
+}
+
+/* ==========================================================================
+   4. Projetos (Carrossel no Estilo de Referência - Última Seção)
+   ========================================================================== */
+.projetos {
+    padding: 100px 0;
+    position: relative;
+}
+
+.secao-cabecalho-projetos {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    gap: 20px;
+}
+
+.titulo-com-linha {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+}
+
+.prefixo-hashtag {
+    font-family: var(--font-mono);
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--primary-accent);
+}
+
+.secao-titulo-projetos {
+    font-family: var(--font-heading);
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.linha-decorativa-projetos {
+    height: 1px;
+    flex: 1;
+    max-width: 500px;
+    background: linear-gradient(90deg, var(--primary-accent), transparent);
+}
+
+/* Controles do Carrossel (Setas) */
+.controles-carrossel {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.btn-carrossel {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-carrossel:hover {
+    border-color: var(--primary-accent);
+    color: var(--primary-accent);
+    box-shadow: 0 0 15px var(--primary-glow);
+    transform: scale(1.08);
+}
+
+.btn-carrossel:active {
+    transform: scale(0.95);
+}
+
+/* Viewport e Trilho do Carrossel */
+.viewport-carrossel {
+    width: 100%;
+    overflow: hidden;
+    padding: 10px 0 25px;
+}
+
+.trilho-carrossel {
+    display: flex;
+    gap: 24px;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform;
+}
+
+/* Card Individual de Projeto */
+.cartao-projeto {
+    flex: 0 0 calc(33.333% - 16px);
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cartao-projeto:hover {
+    border-color: var(--border-color-glow);
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px var(--primary-glow);
+}
+
+.topo-imagem-projeto {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: #000000;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.imagem-cartao-projeto {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.cartao-projeto:hover .imagem-cartao-projeto {
+    transform: scale(1.04);
+}
+
+.tech-stack-projeto {
+    padding: 8px 16px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.corpo-cartao-projeto {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 12px;
+}
+
+.titulo-cartao-projeto {
+    font-family: var(--font-heading);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.descricao-cartao-projeto {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    flex: 1;
+}
+
+.acoes-cartao-projeto {
+    margin-top: 8px;
+}
+
+.btn-acao-projeto {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border: 1px solid var(--primary-accent);
+    color: var(--text-main);
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 4px;
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+.btn-acao-projeto:hover {
+    background: var(--primary-accent);
+    color: #FFFFFF;
+    box-shadow: 0 0 15px var(--primary-glow);
 }
 
 /* ==========================================================================
@@ -785,23 +1110,16 @@ body.tema-claro .btn-tema {
 
 .aviso {
     font-size: 14px;
-    color: inherit;
+    color: var(--text-main);
     margin-top: 45px;
 }
 
 /* ==========================================================================
    Breakpoints Responsivos
    ========================================================================== */
-@media (max-width: 992px) {
-    .item-projeto {
-        flex-direction: column;
-        gap: 28px;
-    }
-
-    .conteudo-projeto,
-    .envoltorio-imagem-projeto {
-        max-width: 100%;
-        width: 100%;
+@media (max-width: 1024px) {
+    .cartao-projeto {
+        flex: 0 0 calc(50% - 12px);
     }
 
     .ramificacoes-engrenagem {
@@ -809,22 +1127,33 @@ body.tema-claro .btn-tema {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     .intro-grade {
         grid-template-columns: 1fr;
-        text-align: center;
+        gap: 40px;
     }
 
     .intro-esquerda {
         align-items: center;
+        text-align: center;
     }
 
     .intro-titulo {
-        font-size: 48px;
+        font-size: 44px;
     }
 
     .intro-direita {
         transform: translateY(30px);
+    }
+
+    .intro-direita.ativo {
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
     }
 
     .linha-do-tempo::before {
@@ -869,12 +1198,58 @@ body.tema-claro .btn-tema {
     }
 }
 
-@media (max-width: 600px) {
-    .nav-links {
-        display: none;
+@media (max-width: 640px) {
+    .cartao-projeto {
+        flex: 0 0 100%;
     }
 
     .intro-titulo {
         font-size: 36px;
+    }
+
+    .btn-baixar-cv span {
+        display: none;
+    }
+
+    .btn-baixar-cv {
+        padding: 8px 12px;
+    }
+}
+
+/* ==========================================================================
+   Estilos para Impressão / Salvar como PDF
+   ========================================================================== */
+@media print {
+    .cabecalho,
+    .controles-carrossel,
+    .envoltorio-btn-sobre,
+    .btn-tema-switch,
+    .btn-baixar-cv {
+        display: none !important;
+    }
+
+    body {
+        background: #FFFFFF !important;
+        color: #000000 !important;
+    }
+
+    .intro-direita {
+        opacity: 1 !important;
+        transform: none !important;
+        pointer-events: auto !important;
+    }
+
+    .viewport-carrossel {
+        overflow: visible !important;
+    }
+
+    .trilho-carrossel {
+        flex-wrap: wrap !important;
+        transform: none !important;
+    }
+
+    .cartao-projeto {
+        flex: 0 0 45% !important;
+        break-inside: avoid;
     }
 }

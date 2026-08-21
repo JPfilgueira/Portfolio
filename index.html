@@ -10,7 +10,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;700&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="globals.css">
     <link rel="stylesheet" href="style.css">
@@ -20,7 +20,7 @@
     <header class="cabecalho">
         <div class="cabecalho-container">
             <a href="#" aria-label="Página inicial" class="logo-link">
-                <span class="texto-logo-rodape">JP.</span>
+                <span class="texto-logo-cabecalho">JP.</span>
             </a>
             <nav class="nav-links" aria-label="Navegação principal">
                 <a class="nav-item" href="#introducao">Sobre mim</a>
@@ -29,17 +29,46 @@
                 <a class="nav-item" href="#projetos">Projetos</a>
                 <a class="nav-item" href="#contatos">Contatos</a>
             </nav>
-            <button class="btn-tema" id="alternar-tema" type="button" aria-label="Alternar tema">
-                <div class="tema-ying-yang" id="ying-yang">
-                    <div class="ponto-preto"></div>
-                    <div class="ponto-branco"></div>
-                </div>
-            </button>
+            
+            <div class="cabecalho-acoes">
+                <!-- Botão Baixar CV -->
+                <button class="btn-baixar-cv" id="btn-baixar-cv" type="button" aria-label="Baixar Currículo em PDF">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    <span>Baixar CV</span>
+                </button>
+
+                <!-- Botão Alternar Tema (Cinematic Theme Switcher) -->
+                <button class="btn-tema-switch" id="alternar-tema" type="button" aria-label="Alternar tema claro/escuro">
+                    <span class="icone-tema sol">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </span>
+                    <span class="icone-tema lua">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </span>
+                    <span class="cursor-indicador-tema"></span>
+                </button>
+            </div>
         </div>
     </header>
 
     <main>
-        <!-- Introdução -->
+        <!-- 1. Introdução -->
         <section id="introducao" class="introducao">
             <div class="intro-fundo-brilho"></div>
             <div class="container intro-grade">
@@ -51,23 +80,76 @@
                     <p class="intro-descricao">
                         Desenvolvedor focado em criar experiências digitais modernas, elegantes e de alto impacto visual.
                     </p>
+
                     <div class="intro-acoes">
-                        <button class="btn-sobre-mim" id="btn-sobre">
-                            <span>Conheça mais</span>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                        </button>
+                        <!-- Botão com neon contínuo intenso girando no contorno -->
+                        <div class="envoltorio-btn-sobre">
+                            <button class="btn-sobre-mim" id="btn-sobre" type="button">
+                                <span>Conheça mais</span>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            </button>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="intro-direita" id="intro-container-svg">
-                    <div class="envoltorio-svg">
-                        <img src="assets/img/Left-hand elements.svg" alt="Elementos Gráficos Sobre Mim" class="intro-svg">
+                <!-- Card Real de Sobre Mim (Aparece após clicar em "Conheça mais") -->
+                <div class="intro-direita" id="intro-container-perfil">
+                    <div class="cartao-perfil-sobre">
+                        <div class="perfil-topo">
+                            <div class="envoltorio-foto-perfil">
+                                <img src="assets/icons/Foto.svg" alt="Foto de João Pedro" class="foto-perfil">
+                                <span class="badge-status-online" title="Disponível para projetos"></span>
+                            </div>
+                            <div class="info-perfil-topo">
+                                <span class="etiqueta-cargo">Full Stack Developer</span>
+                                <h3 class="nome-perfil">João Pedro Filgueira</h3>
+                                <p class="local-perfil">📍 Mogi das Cruzes, SP - Brasil</p>
+                            </div>
+                        </div>
+
+                        <div class="perfil-divisor"></div>
+
+                        <div class="perfil-detalhes">
+                            <div class="item-detalhe">
+                                <span class="detalhe-rotulo">FORMAÇÃO</span>
+                                <span class="detalhe-valor">Técnico em Análise e Desenv. de Sistemas (SENAI)</span>
+                            </div>
+                            
+                            <div class="item-detalhe">
+                                <span class="detalhe-rotulo">ESPECIALIDADES</span>
+                                <div class="perfil-tags">
+                                    <span class="tag-perfil">JavaScript</span>
+                                    <span class="tag-perfil">TypeScript</span>
+                                    <span class="tag-perfil">React</span>
+                                    <span class="tag-perfil">Node.js</span>
+                                    <span class="tag-perfil">UI/UX</span>
+                                </div>
+                            </div>
+
+                            <!-- Terminal de Código com efeito typewriter dentro do Sobre Mim -->
+                            <div class="terminal-codigo" aria-hidden="true">
+                                <div class="terminal-topo">
+                                    <span class="ponto-terminal ponto-vermelho"></span>
+                                    <span class="ponto-terminal ponto-amarelo"></span>
+                                    <span class="ponto-terminal ponto-verde"></span>
+                                    <span class="terminal-titulo">sobre-mim.js</span>
+                                </div>
+                                <div class="terminal-corpo">
+                                    <pre><code id="codigo-animado"></code><span class="cursor-digitacao">|</span></pre>
+                                </div>
+                            </div>
+
+                            <div class="item-detalhe">
+                                <span class="detalhe-rotulo">STATUS</span>
+                                <span class="status-disponivel">🟢 Aberto a novas oportunidades e projetos</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Tecnologias -->
+        <!-- 2. Tecnologias -->
         <section id="tecnologias" class="tecnologias">
             <div class="container">
                 <div class="secao-cabecalho">
@@ -153,7 +235,7 @@
             </div>
         </section>
 
-        <!-- Histórico (Linha do tempo alternada) -->
+        <!-- 3. Histórico (Linha do tempo alternada) -->
         <section id="historico" class="historico">
             <div class="container">
                 <div class="secao-cabecalho">
@@ -231,212 +313,202 @@
             </div>
         </section>
 
-        <!-- Projetos -->
+        <!-- 4. Projetos (Carrossel no estilo de Referência - Última Seção) -->
         <section id="projetos" class="projetos">
             <div class="container">
-                <div class="secao-cabecalho">
-                    <h2 class="secao-titulo">Projetos em Destaque</h2>
-                    <p class="secao-subtitulo">Aplicações, sistemas e experimentos desenvolvidos recentemente</p>
+                <div class="secao-cabecalho-projetos">
+                    <div class="titulo-com-linha">
+                        <span class="prefixo-hashtag">#</span>
+                        <h2 class="secao-titulo-projetos">projetos</h2>
+                        <div class="linha-decorativa-projetos"></div>
+                    </div>
+                    <!-- Controles do Carrossel (Setas) -->
+                    <div class="controles-carrossel">
+                        <button class="btn-carrossel anterior" id="btn-projeto-ant" aria-label="Projeto anterior">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                        </button>
+                        <button class="btn-carrossel proximo" id="btn-projeto-prox" aria-label="Próximo projeto">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        </button>
+                    </div>
                 </div>
 
-                <div class="lista-projetos">
-                    <!-- Projeto 1: Pomodoro Study -->
-                    <article class="item-projeto impar">
-                        <div class="conteudo-projeto">
-                            <span class="etiqueta-projeto">Projeto Destaque</span>
-                            <h3 class="titulo-projeto">Pomodoro Study</h3>
-                            <div class="caixa-descricao-projeto">
-                                <p>Plataforma voltada para organização e produtividade nos estudos, baseada na técnica Pomodoro. O projeto conta com uma área de autenticação para usuários, incluindo funcionalidades de login, cadastro e recuperação de senha. A aplicação foi desenvolvida com o objetivo de auxiliar estudantes na organização de sua rotina e no gerenciamento do tempo dedicado aos estudos, aplicando um dos métodos mais conhecidos de gestão de tempo e foco.</p>
+                <!-- Janela do Carrossel de Projetos -->
+                <div class="viewport-carrossel" id="viewport-carrossel">
+                    <div class="trilho-carrossel" id="trilho-carrossel">
+                        
+                        <!-- Card Projeto 1: Pomodoro Study -->
+                        <article class="cartao-projeto">
+                            <div class="topo-imagem-projeto">
+                                <img src="assets/img/projetos/Pomodoro Study.png" alt="Prévia de Pomodoro Study" class="imagem-cartao-projeto" loading="lazy">
                             </div>
-                            <div class="acoes-projeto">
-                                <a href="https://jpfilgueira.github.io/Pomodoro-Study/login.html" target="_blank" rel="noopener noreferrer" class="btn-projeto" aria-label="Acessar Pomodoro Study">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                                    <span>Visualizar Projeto</span>
-                                </a>
+                            <div class="tech-stack-projeto">
+                                <span>HTML</span> <span>CSS</span> <span>JavaScript</span> <span>Auth</span>
                             </div>
-                        </div>
-                        <div class="envoltorio-imagem-projeto">
-                            <a href="https://jpfilgueira.github.io/Pomodoro-Study/login.html" target="_blank" rel="noopener noreferrer">
-                                <img src="assets/img/projetos/Pomodoro Study.png" alt="Prévia do projeto Pomodoro Study" class="imagem-projeto" loading="lazy">
-                            </a>
-                        </div>
-                    </article>
+                            <div class="corpo-cartao-projeto">
+                                <h3 class="titulo-cartao-projeto">Pomodoro Study</h3>
+                                <p class="descricao-cartao-projeto">Plataforma voltada para produtividade nos estudos com autenticação e técnica Pomodoro.</p>
+                                <div class="acoes-cartao-projeto">
+                                    <a href="https://jpfilgueira.github.io/Pomodoro-Study/login.html" target="_blank" rel="noopener noreferrer" class="btn-acao-projeto">
+                                        <span>Live &lt;~&gt;</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
 
-                    <!-- Projeto 2: E-commerce -->
-                    <article class="item-projeto par">
-                        <div class="conteudo-projeto">
-                            <span class="etiqueta-projeto">Projeto Destaque</span>
-                            <h3 class="titulo-projeto">E-commerce</h3>
-                            <div class="caixa-descricao-projeto">
-                                <p>Site informativo desenvolvido para apresentar o crescimento e a evolução do comércio eletrônico no Brasil. O projeto aborda diferentes aspectos relacionados ao e-commerce, incluindo os fatores responsáveis pela expansão do setor, a acessibilidade proporcionada pelas plataformas digitais, as oportunidades de empreendedorismo pela internet e as principais tendências para o futuro. Também são explorados temas como inteligência artificial, comércio social e sustentabilidade no ambiente digital.</p>
+                        <!-- Card Projeto 2: E-commerce -->
+                        <article class="cartao-projeto">
+                            <div class="topo-imagem-projeto">
+                                <img src="assets/img/projetos/E-commerce.png" alt="Prévia de E-commerce" class="imagem-cartao-projeto" loading="lazy">
                             </div>
-                            <div class="acoes-projeto">
-                                <a href="https://jpfilgueira.github.io/ECommerce/" target="_blank" rel="noopener noreferrer" class="btn-projeto" aria-label="Acessar E-commerce">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                                    <span>Visualizar Projeto</span>
-                                </a>
+                            <div class="tech-stack-projeto">
+                                <span>HTML</span> <span>CSS</span> <span>JavaScript</span> <span>UI/UX</span>
                             </div>
-                        </div>
-                        <div class="envoltorio-imagem-projeto">
-                            <a href="https://jpfilgueira.github.io/ECommerce/" target="_blank" rel="noopener noreferrer">
-                                <img src="assets/img/projetos/E-commerce.png" alt="Prévia do projeto E-commerce" class="imagem-projeto" loading="lazy">
-                            </a>
-                        </div>
-                    </article>
+                            <div class="corpo-cartao-projeto">
+                                <h3 class="titulo-cartao-projeto">E-commerce</h3>
+                                <p class="descricao-cartao-projeto">Site informativo sobre a evolução e tendências de inovação e IA no comércio eletrônico.</p>
+                                <div class="acoes-cartao-projeto">
+                                    <a href="https://jpfilgueira.github.io/ECommerce/" target="_blank" rel="noopener noreferrer" class="btn-acao-projeto">
+                                        <span>Live &lt;~&gt;</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
 
-                    <!-- Projeto 3: Documento Comercial -->
-                    <article class="item-projeto impar">
-                        <div class="conteudo-projeto">
-                            <span class="etiqueta-projeto">Projeto Destaque</span>
-                            <h3 class="titulo-projeto">Documento Comercial</h3>
-                            <div class="caixa-descricao-projeto">
-                                <p>Sistema desenvolvido para criação e gerenciamento de documentos comerciais. A aplicação permite inserir informações de clientes, data de emissão, produtos ou serviços, quantidades, valores unitários e observações. A partir dos dados cadastrados, o sistema realiza os cálculos necessários para apresentar os valores do documento e disponibiliza recursos para visualização, impressão e geração do documento em formato PDF, proporcionando uma solução prática para a elaboração de documentos comerciais.</p>
+                        <!-- Card Projeto 3: Documento Comercial -->
+                        <article class="cartao-projeto">
+                            <div class="topo-imagem-projeto">
+                                <img src="assets/img/projetos/Documento Comercial.png" alt="Prévia de Documento Comercial" class="imagem-cartao-projeto" loading="lazy">
                             </div>
-                            <div class="acoes-projeto">
-                                <a href="https://jpfilgueira.github.io/Relat-rio-do-JP/" target="_blank" rel="noopener noreferrer" class="btn-projeto" aria-label="Acessar Documento Comercial">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                                    <span>Visualizar Projeto</span>
-                                </a>
+                            <div class="tech-stack-projeto">
+                                <span>JavaScript</span> <span>PDF-Engine</span> <span>HTML5</span>
                             </div>
-                        </div>
-                        <div class="envoltorio-imagem-projeto">
-                            <a href="https://jpfilgueira.github.io/Relat-rio-do-JP/" target="_blank" rel="noopener noreferrer">
-                                <img src="assets/img/projetos/Documento Comercial.png" alt="Prévia do projeto Documento Comercial" class="imagem-projeto" loading="lazy">
-                            </a>
-                        </div>
-                    </article>
+                            <div class="corpo-cartao-projeto">
+                                <h3 class="titulo-cartao-projeto">Documento Comercial</h3>
+                                <p class="descricao-cartao-projeto">Sistema de gerenciamento e emissão de documentos comerciais com geração instantânea de PDF.</p>
+                                <div class="acoes-cartao-projeto">
+                                    <a href="https://jpfilgueira.github.io/Relat-rio-do-JP/" target="_blank" rel="noopener noreferrer" class="btn-acao-projeto">
+                                        <span>Live &lt;~&gt;</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
 
-                    <!-- Projeto 4: Operações Matemáticas -->
-                    <article class="item-projeto par">
-                        <div class="conteudo-projeto">
-                            <span class="etiqueta-projeto">Projeto Destaque</span>
-                            <h3 class="titulo-projeto">Operações Matemáticas</h3>
-                            <div class="caixa-descricao-projeto">
-                                <p>Projeto desenvolvido com foco na aplicação de testes unitários em JavaScript. A aplicação utiliza uma função matemática de multiplicação como base para demonstrar como diferentes cenários podem ser testados automaticamente, verificando se os resultados obtidos correspondem aos valores esperados. O projeto também apresenta os resultados dos testes e permite acompanhar a execução através do console do navegador, servindo como demonstração prática de conceitos de testes automatizados e validação de código.</p>
+                        <!-- Card Projeto 4: Operações Matemáticas -->
+                        <article class="cartao-projeto">
+                            <div class="topo-imagem-projeto">
+                                <img src="assets/img/projetos/Operações Matemáticas.png" alt="Prévia de Operações Matemáticas" class="imagem-cartao-projeto" loading="lazy">
                             </div>
-                            <div class="acoes-projeto">
-                                <a href="https://jpfilgueira.github.io/Teste-de-Multiplica-o/" target="_blank" rel="noopener noreferrer" class="btn-projeto" aria-label="Acessar Operações Matemáticas">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                                    <span>Visualizar Projeto</span>
-                                </a>
+                            <div class="tech-stack-projeto">
+                                <span>JavaScript</span> <span>Unit-Tests</span> <span>Logic</span>
                             </div>
-                        </div>
-                        <div class="envoltorio-imagem-projeto">
-                            <a href="https://jpfilgueira.github.io/Teste-de-Multiplica-o/" target="_blank" rel="noopener noreferrer">
-                                <img src="assets/img/projetos/Operações Matemáticas.png" alt="Prévia do projeto Operações Matemáticas" class="imagem-projeto" loading="lazy">
-                            </a>
-                        </div>
-                    </article>
+                            <div class="corpo-cartao-projeto">
+                                <h3 class="titulo-cartao-projeto">Operações Matemáticas</h3>
+                                <p class="descricao-cartao-projeto">Aplicação prática para execução e validação de testes unitários automatizados em JS.</p>
+                                <div class="acoes-cartao-projeto">
+                                    <a href="https://jpfilgueira.github.io/Teste-de-Multiplica-o/" target="_blank" rel="noopener noreferrer" class="btn-acao-projeto">
+                                        <span>Live &lt;~&gt;</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
 
-                    <!-- Projeto 5: Mangás Brasil -->
-                    <article class="item-projeto impar">
-                        <div class="conteudo-projeto">
-                            <span class="etiqueta-projeto">Projeto Destaque</span>
-                            <h3 class="titulo-projeto">Mangás Brasil</h3>
-                            <div class="caixa-descricao-projeto">
-                                <p>Plataforma web dedicada ao universo dos mangás, desenvolvida para proporcionar uma experiência de navegação e descoberta de diferentes obras. O projeto apresenta recursos como busca, categorias, mangás populares, informações sobre o conteúdo disponível, área de assinatura, blog e parceiros. A interface foi estruturada para simular uma plataforma especializada, reunindo diferentes seções relacionadas à leitura, descoberta e acompanhamento de mangás em um único ambiente.</p>
+                        <!-- Card Projeto 5: Mangás Brasil -->
+                        <article class="cartao-projeto">
+                            <div class="topo-imagem-projeto">
+                                <img src="assets/img/projetos/Mangás Brasil.png" alt="Prévia de Mangás Brasil" class="imagem-cartao-projeto" loading="lazy">
                             </div>
-                            <div class="acoes-projeto">
-                                <a href="https://jpfilgueira.github.io/Mangas-Brasil/" target="_blank" rel="noopener noreferrer" class="btn-projeto" aria-label="Acessar Mangás Brasil">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                                    <span>Visualizar Projeto</span>
-                                </a>
+                            <div class="tech-stack-projeto">
+                                <span>HTML</span> <span>CSS</span> <span>JavaScript</span> <span>Layout</span>
                             </div>
-                        </div>
-                        <div class="envoltorio-imagem-projeto">
-                            <a href="https://jpfilgueira.github.io/Mangas-Brasil/" target="_blank" rel="noopener noreferrer">
-                                <img src="assets/img/projetos/Mangás Brasil.png" alt="Prévia do projeto Mangás Brasil" class="imagem-projeto" loading="lazy">
-                            </a>
-                        </div>
-                    </article>
+                            <div class="corpo-cartao-projeto">
+                                <h3 class="titulo-cartao-projeto">Mangás Brasil</h3>
+                                <p class="descricao-cartao-projeto">Plataforma dedicada ao universo de mangás com navegação por categorias e área de membros.</p>
+                                <div class="acoes-cartao-projeto">
+                                    <a href="https://jpfilgueira.github.io/Mangas-Brasil/" target="_blank" rel="noopener noreferrer" class="btn-acao-projeto">
+                                        <span>Live &lt;~&gt;</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
 
-                    <!-- Projeto 6: ProjetoAPI -->
-                    <article class="item-projeto par">
-                        <div class="conteudo-projeto">
-                            <span class="etiqueta-projeto">Projeto Destaque</span>
-                            <h3 class="titulo-projeto">ProjetoAPI</h3>
-                            <div class="caixa-descricao-projeto">
-                                <p>Aplicação desenvolvida para demonstrar na prática o consumo e a integração de APIs (Application Programming Interfaces) em aplicações web. O projeto reúne diferentes funcionalidades que utilizam serviços externos para realizar consultas e obter informações, incluindo dados relacionados a clima, cotação do dólar, receitas, músicas, CEP e outros serviços. Dessa forma, o projeto demonstra como uma aplicação pode se comunicar com diferentes APIs e utilizar os dados retornados para fornecer funcionalidades interativas ao usuário.</p>
+                        <!-- Card Projeto 6: ProjetoAPI -->
+                        <article class="cartao-projeto">
+                            <div class="topo-imagem-projeto">
+                                <img src="assets/img/projetos/ProjetoAPI.png" alt="Prévia de ProjetoAPI" class="imagem-cartao-projeto" loading="lazy">
                             </div>
-                            <div class="acoes-projeto">
-                                <a href="https://jpfilgueira.github.io/ProjetoAPI/" target="_blank" rel="noopener noreferrer" class="btn-projeto" aria-label="Acessar ProjetoAPI">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                                    <span>Visualizar Projeto</span>
-                                </a>
+                            <div class="tech-stack-projeto">
+                                <span>JavaScript</span> <span>REST-API</span> <span>Async</span>
                             </div>
-                        </div>
-                        <div class="envoltorio-imagem-projeto">
-                            <a href="https://jpfilgueira.github.io/ProjetoAPI/" target="_blank" rel="noopener noreferrer">
-                                <img src="assets/img/projetos/ProjetoAPI.png" alt="Prévia do projeto ProjetoAPI" class="imagem-projeto" loading="lazy">
-                            </a>
-                        </div>
-                    </article>
+                            <div class="corpo-cartao-projeto">
+                                <h3 class="titulo-cartao-projeto">ProjetoAPI</h3>
+                                <p class="descricao-cartao-projeto">Integração de serviços e APIs externas para consultas de câmbio, clima, CEP e músicas.</p>
+                                <div class="acoes-cartao-projeto">
+                                    <a href="https://jpfilgueira.github.io/ProjetoAPI/" target="_blank" rel="noopener noreferrer" class="btn-acao-projeto">
+                                        <span>Live &lt;~&gt;</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
 
-                    <!-- Projeto 7: Portfólio-Beta -->
-                    <article class="item-projeto impar">
-                        <div class="conteudo-projeto">
-                            <span class="etiqueta-projeto">Projeto Destaque</span>
-                            <h3 class="titulo-projeto">Portfólio-Beta</h3>
-                            <div class="caixa-descricao-projeto">
-                                <p>Portfólio pessoal desenvolvido para apresentar projetos, competências e experiências na área de desenvolvimento de software. O projeto funciona como uma página profissional para reunir trabalhos desenvolvidos, tecnologias e conhecimentos técnicos, permitindo apresentar de forma organizada a experiência do desenvolvedor e os principais projetos realizados. A aplicação também serve como uma representação da identidade profissional e das habilidades adquiridas ao longo da formação e da prática em desenvolvimento web e software.</p>
+                        <!-- Card Projeto 7: Portfólio-Beta -->
+                        <article class="cartao-projeto">
+                            <div class="topo-imagem-projeto">
+                                <img src="assets/img/projetos/Portfólio-Beta.png" alt="Prévia de Portfólio-Beta" class="imagem-cartao-projeto" loading="lazy">
                             </div>
-                            <div class="acoes-projeto">
-                                <a href="https://portfolio-beta-jet-10.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-projeto" aria-label="Acessar Portfólio-Beta">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                                    <span>Visualizar Projeto</span>
-                                </a>
+                            <div class="tech-stack-projeto">
+                                <span>HTML</span> <span>CSS</span> <span>JavaScript</span> <span>Vercel</span>
                             </div>
-                        </div>
-                        <div class="envoltorio-imagem-projeto">
-                            <a href="https://portfolio-beta-jet-10.vercel.app/" target="_blank" rel="noopener noreferrer">
-                                <img src="assets/img/projetos/Portfólio-Beta.png" alt="Prévia do projeto Portfólio-Beta" class="imagem-projeto" loading="lazy">
-                            </a>
-                        </div>
-                    </article>
+                            <div class="corpo-cartao-projeto">
+                                <h3 class="titulo-cartao-projeto">Portfólio-Beta</h3>
+                                <p class="descricao-cartao-projeto">Primeira versão de portfólio reunindo projetos e formação acadêmica em tecnologia.</p>
+                                <div class="acoes-cartao-projeto">
+                                    <a href="https://portfolio-beta-jet-10.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-acao-projeto">
+                                        <span>Live &lt;~&gt;</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
 
-                    <!-- Projeto 8: Aula-LocalStorage -->
-                    <article class="item-projeto par">
-                        <div class="conteudo-projeto">
-                            <span class="etiqueta-projeto">Projeto Destaque</span>
-                            <h3 class="titulo-projeto">Aula-LocalStorage</h3>
-                            <div class="caixa-descricao-projeto">
-                                <p>Aplicação desenvolvida para demonstrar o funcionamento do LocalStorage do navegador através de uma lista de tarefas. O projeto permite ao usuário adicionar e gerenciar tarefas diretamente pela interface, utilizando o armazenamento local para preservar as informações no navegador. A aplicação foi criada como uma demonstração prática do uso de recursos de armazenamento do lado do cliente, mostrando como dados podem ser salvos e recuperados sem a necessidade de um banco de dados ou servidor externo.</p>
+                        <!-- Card Projeto 8: Aula-LocalStorage -->
+                        <article class="cartao-projeto">
+                            <div class="topo-imagem-projeto">
+                                <img src="assets/img/projetos/Aula-LocalStorage.png" alt="Prévia de Aula-LocalStorage" class="imagem-cartao-projeto" loading="lazy">
                             </div>
-                            <div class="acoes-projeto">
-                                <a href="https://jpfilgueira.github.io/TarefaComLocalStorage/" target="_blank" rel="noopener noreferrer" class="btn-projeto" aria-label="Acessar Aula-LocalStorage">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                                    <span>Visualizar Projeto</span>
-                                </a>
+                            <div class="tech-stack-projeto">
+                                <span>JavaScript</span> <span>LocalStorage</span> <span>CRUD</span>
                             </div>
-                        </div>
-                        <div class="envoltorio-imagem-projeto">
-                            <a href="https://jpfilgueira.github.io/TarefaComLocalStorage/" target="_blank" rel="noopener noreferrer">
-                                <img src="assets/img/projetos/Aula-LocalStorage.png" alt="Prévia do projeto Aula-LocalStorage" class="imagem-projeto" loading="lazy">
-                            </a>
-                        </div>
-                    </article>
+                            <div class="corpo-cartao-projeto">
+                                <h3 class="titulo-cartao-projeto">Aula-LocalStorage</h3>
+                                <p class="descricao-cartao-projeto">Gerenciador de tarefas com persistência completa de dados no cliente sem banco externo.</p>
+                                <div class="acoes-cartao-projeto">
+                                    <a href="https://jpfilgueira.github.io/TarefaComLocalStorage/" target="_blank" rel="noopener noreferrer" class="btn-acao-projeto">
+                                        <span>Live &lt;~&gt;</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
 
-                    <!-- Projeto 9: Drag and Drop -->
-                    <article class="item-projeto impar">
-                        <div class="conteudo-projeto">
-                            <span class="etiqueta-projeto">Projeto Destaque</span>
-                            <h3 class="titulo-projeto">Drag and Drop</h3>
-                            <div class="caixa-descricao-projeto">
-                                <p>Aplicação desenvolvida como um organizador semanal de estudos utilizando a funcionalidade Drag and Drop. O projeto apresenta os dias da semana e diferentes disciplinas, permitindo que o usuário organize visualmente suas matérias de acordo com a rotina desejada. A interação de arrastar e soltar torna a organização mais intuitiva e demonstra, na prática, a utilização de eventos e funcionalidades de Drag and Drop em aplicações web para criar interfaces interativas e dinâmicas.</p>
+                        <!-- Card Projeto 9: Drag and Drop -->
+                        <article class="cartao-projeto">
+                            <div class="topo-imagem-projeto">
+                                <img src="assets/img/projetos/Drag and Drop.png" alt="Prévia de Drag and Drop" class="imagem-cartao-projeto" loading="lazy">
                             </div>
-                            <div class="acoes-projeto">
-                                <a href="https://jpfilgueira.github.io/-Projeto-Drag-and-Drop/" target="_blank" rel="noopener noreferrer" class="btn-projeto" aria-label="Acessar Drag and Drop">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                                    <span>Visualizar Projeto</span>
-                                </a>
+                            <div class="tech-stack-projeto">
+                                <span>JavaScript</span> <span>Drag-Drop</span> <span>HTML5</span>
                             </div>
-                        </div>
-                        <div class="envoltorio-imagem-projeto">
-                            <a href="https://jpfilgueira.github.io/-Projeto-Drag-and-Drop/" target="_blank" rel="noopener noreferrer">
-                                <img src="assets/img/projetos/Drag and Drop.png" alt="Prévia do projeto Drag and Drop" class="imagem-projeto" loading="lazy">
-                            </a>
-                        </div>
-                    </article>
+                            <div class="corpo-cartao-projeto">
+                                <h3 class="titulo-cartao-projeto">Drag and Drop</h3>
+                                <p class="descricao-cartao-projeto">Organizador semanal de estudos utilizando mecânica interativa de arrastar e soltar.</p>
+                                <div class="acoes-cartao-projeto">
+                                    <a href="https://jpfilgueira.github.io/-Projeto-Drag-and-Drop/" target="_blank" rel="noopener noreferrer" class="btn-acao-projeto">
+                                        <span>Live &lt;~&gt;</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+
+                    </div>
                 </div>
             </div>
         </section>
