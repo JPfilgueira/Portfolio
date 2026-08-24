@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const textoCodigo = `const dev = {
   nome: "João Pedro",
-  formacao: "Técnico em ADS (SENAI)",
+  formacao: "Técnico em ADS",
   foco: "Full Stack & Design",
   paixao: "Criar interfaces modernas"
 };`;
