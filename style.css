@@ -1076,6 +1076,7 @@ body.tema-claro .cursor-indicador-tema {
     display: flex;
     gap: 12px;
     justify-content: center;
+    margin-bottom: 45px;
 }
 
 .icones-sociais a {
@@ -1105,12 +1106,6 @@ body.tema-claro .cursor-indicador-tema {
 .base-rodape p {
     font-size: 13px;
     color: #6B7280;
-}
-
-.aviso {
-    font-size: 14px;
-    color: var(--text-main);
-    margin-top: 45px;
 }
 
 /* ==========================================================================
