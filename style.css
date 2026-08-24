@@ -908,7 +908,6 @@ body.tema-claro .cursor-indicador-tema {
 .cartao-projeto:hover {
     border-color: var(--border-color-glow);
     transform: translateY(-4px);
-    box-shadow: 0 15px 35px var(--primary-glow);
 }
 
 .topo-imagem-projeto {
