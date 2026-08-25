@@ -768,13 +768,13 @@ body.tema-claro .cursor-indicador-tema {
 .cartao-linha-do-tempo.impar .conteudo-linha-do-tempo:hover {
     border-color: var(--border-color-glow);
     transform: translateX(-6px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 30px var(--border-color-glow);
 }
 
 .cartao-linha-do-tempo.par .conteudo-linha-do-tempo:hover {
     border-color: var(--border-color-glow);
     transform: translateX(6px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 30px var(--border-color-glow);
 }
 
 .data-linha-do-tempo {
