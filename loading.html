@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Carregando | Portfólio João Pedro</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/Logo.svg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="globals.css">
+    <link rel="stylesheet" href="loading.css">
+</head>
+<body>
+
+    <div class="tela-carregamento">
+        <div class="fundo-brilho-carregamento"></div>
+
+        <span class="logo-carregamento">JP.</span>
+
+        <div class="conteudo-carregamento">
+            <h1 class="titulo-carregamento">Carregando <span class="destaque-carregamento">Portfólio</span></h1>
+
+            <div class="barra-carregamento-envoltorio">
+                <div class="barra-carregamento-trilho">
+                    <div class="barra-carregamento-preenchimento" id="barra-preenchimento"></div>
+                </div>
+
+                <div class="barra-carregamento-status">
+                    <span class="texto-status">Carregando<span id="pontos-carregando"></span></span>
+                    <span class="texto-porcentagem" id="texto-porcentagem">0%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="loading.js"></script>
+</body>
+</html>

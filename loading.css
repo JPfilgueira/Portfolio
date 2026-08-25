@@ -1,0 +1,158 @@
+/* ==========================================================================
+   Tela de Loading — Portfólio João Pedro
+   Depende apenas das variáveis/reset definidos em globals.css
+   ========================================================================== */
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background-color: var(--bg-main);
+    overflow: hidden;
+}
+
+.tela-carregamento {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Brilho de fundo (mesmo efeito radial usado na introdução do site principal) */
+.fundo-brilho-carregamento {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 600px;
+    height: 600px;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
+    filter: blur(100px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Logo no canto superior esquerdo */
+.logo-carregamento {
+    position: fixed;
+    top: 32px;
+    left: 32px;
+    font-family: var(--font-heading);
+    font-size: 26px;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--primary-accent), var(--secondary-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    z-index: 2;
+    animation: aparecer-suave 0.8s ease;
+}
+
+/* Conteúdo central */
+.conteudo-carregamento {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    text-align: center;
+    padding: 0 24px;
+    animation: aparecer-suave 0.8s ease;
+}
+
+.titulo-carregamento {
+    font-family: var(--font-heading);
+    font-size: 44px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: var(--text-main);
+    line-height: 1.2;
+}
+
+.destaque-carregamento {
+    background: linear-gradient(135deg, var(--primary-accent), var(--secondary-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Barra de carregamento */
+.barra-carregamento-envoltorio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    width: min(380px, 80vw);
+}
+
+.barra-carregamento-trilho {
+    width: 100%;
+    height: 8px;
+    border-radius: 20px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+.barra-carregamento-preenchimento {
+    width: 0%;
+    height: 100%;
+    border-radius: 20px;
+    background: linear-gradient(90deg, var(--primary-accent), var(--secondary-accent));
+    box-shadow: 0 0 12px var(--primary-glow);
+}
+
+.barra-carregamento-status {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.texto-status {
+    min-width: 100px;
+    text-align: left;
+}
+
+#pontos-carregando {
+    display: inline-block;
+    width: 14px;
+    text-align: left;
+}
+
+.texto-porcentagem {
+    color: var(--primary-accent);
+    font-weight: 600;
+}
+
+@keyframes aparecer-suave {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsivo */
+@media (max-width: 640px) {
+    .titulo-carregamento {
+        font-size: 30px;
+    }
+
+    .logo-carregamento {
+        top: 20px;
+        left: 20px;
+        font-size: 22px;
+    }
+}

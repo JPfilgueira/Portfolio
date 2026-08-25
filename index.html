@@ -3,6 +3,18 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Verifica se o usuário já passou pela tela de loading; se não, redireciona antes de renderizar a página -->
+    <script>
+        try {
+            if (localStorage.getItem('portfolio-carregamento-visto') !== 'true') {
+                window.location.replace('loading.html');
+            }
+        } catch (erro) {
+            // Se o navegador bloquear o LocalStorage, ignora e segue direto para o portfólio
+        }
+    </script>
+
     <title>Portfólio | João Pedro</title>
     <link rel="icon" type="image/x-icon" href="assets/icons/Logo.svg">   
     
