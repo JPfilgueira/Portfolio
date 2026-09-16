@@ -26,15 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // =========================================================================
-    // 3. Botão "Baixar CV" (Salvar página como PDF)
-    // =========================================================================
-    const btnBaixarCV = document.getElementById('btn-baixar-cv');
-    if (btnBaixarCV) {
-        btnBaixarCV.addEventListener('click', () => {
-            window.print();
-        });
-    }
 
     // =========================================================================
     // 4. Botão "Conheça mais" & Ativação do Card de Sobre Mim + Digitação
