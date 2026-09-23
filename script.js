@@ -28,10 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // =========================================================================
-    // 4. Botão "Conheça mais" & Ativação do Card de Sobre Mim + Digitação
+    // 3. Efeito de Digitação do Código (Card Sobre Mim Fixo)
     // =========================================================================
-    const btnSobre = document.getElementById('btn-sobre');
-    const containerPerfil = document.getElementById('intro-container-perfil');
     const codigoElemento = document.getElementById('codigo-animado');
     let digitacaoIniciada = false;
 
@@ -59,15 +57,8 @@ document.addEventListener('DOMContentLoaded', () => {
         digitar();
     }
 
-    if (btnSobre && containerPerfil) {
-        btnSobre.addEventListener('click', () => {
-            containerPerfil.classList.toggle('ativo');
-
-            if (containerPerfil.classList.contains('ativo')) {
-                iniciarDigitacaoCodigo();
-            }
-        });
-    }
+    // Iniciar a digitação do código automaticamente ao carregar a página
+    setTimeout(iniciarDigitacaoCodigo, 400);
 
     // =========================================================================
     // 5. Carrossel de Projetos (Autoplay 5s + Navegação por Setas)
