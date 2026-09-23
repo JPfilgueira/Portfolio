@@ -55,6 +55,8 @@ body.tema-claro {
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    width: 100%;
 }
 
 body {
@@ -63,6 +65,8 @@ body {
     font-family: var(--font-sans);
     line-height: 1.6;
     overflow-x: hidden;
+    width: 100%;
+    position: relative;
     transition: background-color 0.4s ease, color 0.4s ease;
 }
 
