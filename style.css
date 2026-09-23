@@ -95,7 +95,7 @@
     background-color: var(--primary-accent);
     color: #000000;
     font-weight: 800;
-    box-shadow: 0 0 24px rgba(168, 85, 247, 0.8), 0 0 45px rgba(168, 85, 247, 0.4);
+    box-shadow: 0 0 12px rgba(168, 85, 247, 0.8), 0 0 22px rgba(168, 85, 247, 0.4);
     transform: translateY(-2px);
 }
 
@@ -636,19 +636,20 @@ body.tema-claro .cursor-indicador-tema {
     padding: 28px;
     backdrop-filter: blur(10px);
     transition: all 0.3s ease;
+    box-shadow: 0 0 15px 1px rgba(255, 255, 255, 0.1);
 }
 
 .cartao-tec:hover {
     background: var(--bg-card-hover);
     border-color: var(--border-color-glow);
     transform: translateY(-4px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 12px 30px var(--border-color-glow);
 }
 
 .cabecalho-cartao-tec {
     margin-bottom: 20px;
     padding-bottom: 12px;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.65);
 }
 
 .categoria-cartao-tec {
