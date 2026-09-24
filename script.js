@@ -61,6 +61,26 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(iniciarDigitacaoCodigo, 400);
 
     // =========================================================================
+    // 4. Histórico: "Ler mais" / "Ler menos" nos Cards da Linha do Tempo
+    // =========================================================================
+    const botoesHistorico = document.querySelectorAll('.link-btn-historico');
+
+    botoesHistorico.forEach(botao => {
+        botao.addEventListener('click', (e) => {
+            e.preventDefault();
+            const cartao = botao.closest('.conteudo-linha-do-tempo');
+            if (!cartao) return;
+
+            const descricao = cartao.querySelector('.descricao-linha-do-tempo');
+            if (!descricao) return;
+
+            const expandido = descricao.classList.toggle('expandido');
+            botao.textContent = expandido ? 'Ler menos' : 'Ler mais';
+            botao.setAttribute('aria-expanded', expandido ? 'true' : 'false');
+        });
+    });
+
+    // =========================================================================
     // 5. Carrossel de Projetos (Autoplay 5s + Navegação por Setas)
     // =========================================================================
     const trilho = document.getElementById('trilho-carrossel');
