@@ -37,6 +37,10 @@ body::-webkit-scrollbar {
     --header-bg: rgba(11, 7, 19, 0.75);
     --footer-bg: #07040C;
     --footer-bottom: #040207;
+
+    /* Cor específicas */
+    --card-border-bottom: rgba(255, 255, 255, 0.65);
+    --item-tec-back: rgba(255, 255, 255, 0.04);
 }
 
 body.tema-claro {
@@ -51,6 +55,10 @@ body.tema-claro {
     --text-subtitle: #334155;
 
     --header-bg: rgba(248, 250, 252, 0.8);
+
+    /* Cores específicas */
+    --card-border-bottom: rgba(0, 0, 0, 0.65);
+    --item-tec-back: rgba(0, 0, 0, 0.05);
 }
 
 html {
