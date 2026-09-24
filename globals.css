@@ -38,9 +38,10 @@ body::-webkit-scrollbar {
     --footer-bg: #07040C;
     --footer-bottom: #040207;
 
-    /* Cor específicas */
+    /* Cores específicas */
     --card-border-bottom: rgba(255, 255, 255, 0.65);
     --item-tec-back: rgba(255, 255, 255, 0.04);
+    --footer-text: #A855F7;
 }
 
 body.tema-claro {
@@ -48,7 +49,12 @@ body.tema-claro {
     --bg-card: #FFFFFF;
     --bg-card-hover: #F1F5F9;
     --border-color: rgba(0, 0, 0, 0.08);
-    --border-color-glow: rgba(168, 85, 247, 0.4);
+    --border-color-glow: rgba(0, 0, 0, 0.5);
+
+    /* Cores que pretendiam continuar sendo as mesmas, mas vão sofrer uma alteração para avaliação */
+    --primary-accent: rgba(0, 0, 0, 0.5);
+    --primary-glow: rgba(0, 0, 0, 0.5);
+
 
     --text-main: #0F172A;
     --text-muted: #64748B;

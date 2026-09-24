@@ -949,7 +949,7 @@ body.tema-claro .cursor-indicador-tema {
     font-family: var(--font-heading);
     font-size: 32px;
     font-weight: 800;
-    color: var(--primary-accent);
+    color: var(--footer-text);
     display: block;
 }
 
@@ -983,7 +983,7 @@ body.tema-claro .cursor-indicador-tema {
 
 .email-rodape {
     display: block;
-    color: var(--primary-accent);
+    color: var(--footer-text);
     font-size: 14px;
     margin-bottom: 16px;
     transition: opacity 0.2s ease;
