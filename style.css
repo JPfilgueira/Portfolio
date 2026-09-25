@@ -381,11 +381,12 @@ body.tema-claro .cursor-indicador-tema {
 .tag-perfil {
     padding: 4px 10px;
     border-radius: 8px;
-    background: rgba(2, 2, 2, 0.05);
-    border: 1px solid var(--border-color);
+    background: var(--especialidades-back);
+    box-shadow: 0px 0px 10px 1px var(--especialidades-shadow);
+    border: 1px solid rgba(128, 128, 128, 0.15);
     font-family: var(--font-mono);
     font-size: 12px;
-    color: var(--especialidades);
+    color: var(--especialidades-text);
 }
 
 /* --------------------------------------------------------------------------

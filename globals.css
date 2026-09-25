@@ -42,7 +42,9 @@ body::-webkit-scrollbar {
     --card-border-bottom: rgba(255, 255, 255, 0.65);
     --item-tec-back: rgba(255, 255, 255, 0.04);
     --footer-text: #A855F7;
-    --especialidades: #A855F7;
+    --especialidades-back: rgba(255, 255, 255, 0.05);
+    --especialidades-shadow: rgba(255, 255, 255, 0.15);
+    --especialidades-text: #A855F7;
 }
 
 body.tema-claro {
@@ -66,7 +68,9 @@ body.tema-claro {
     /* Cores específicas */
     --card-border-bottom: rgba(0, 0, 0, 0.65);
     --item-tec-back: rgba(0, 0, 0, 0.05);
-    --especialidades: #3B82F6;
+    --especialidades-back: rgba(2, 2, 2, 0.05);
+    --especialidades-shadow: rgba(2, 2, 2, 0.2);
+    --especialidades-text: #3B82F6;
 }
 
 html {
